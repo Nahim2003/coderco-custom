@@ -1,10 +1,14 @@
-const core = require('actions/core')
+const core = require('@actions/core');
 
-try {
+function run() {
+  try {
     const nameToGreet = core.getInput('who-to-greet');
-    console.log(`Hello', ${nameToGreet}!`);
-    core.setOutput('time', new Date ().toTimeString());
-} catch (error) {}
+    console.log(`Hello, ${nameToGreet}!`);
+    core.setOutput('time', new Date().toTimeString());
+  } catch (error) {
     core.setFailed(error.message);
-
+  }
 }
+
+run();
+
